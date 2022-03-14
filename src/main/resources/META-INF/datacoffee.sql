@@ -1,0 +1,36 @@
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (1,"Nguyen","Anh","2000-01-21","MALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (2,"Tran","Minh","2000-01-20","FEMALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (3,"Nguyen","Anh","2001-06-21","MALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (4,"Nguyen","Nhung","2001-03-03","MALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (5,"Bui","Tuan","1997-06-21","MALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (6,"Nguyen","Sinh","1997-01-21","MALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (7,"Nguyen","Thien","1997-01-04","MALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (8,"Chau","Quyen","1997-02-21","MALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (9,"Tran","Ha","1997-05-21","MALE","0935802825","anhnguyen@gmail.com","NT")
+insert into customer (id,first_name,last_name,date_of_birth,gender,phone,email,city) values (10,"Nguyen","Tien","1997-01-21","MALE","0935802825","anhnguyen@gmail.com","NT")
+
+insert  into coffee (code,name,type) values (A1,"BETAcoffe","LOAI1")
+insert  into coffee (code,name,type) values (A2,"BETAcoffe","LOAI3")
+insert  into coffee (code,name,type) values (A3,"CFcoffe","LOAI2")
+insert  into coffee (code,name,type) values (A4,"BETAcoffe","LOAI1")
+insert  into coffee (code,name,type) values (A5,"METAcoffee","LOAI2")
+insert  into coffee (code,name,type) values (A6,"BETAcoffe","LOAI2")
+insert  into coffee (code,name,type) values (A7,"METAcoffee","LOAI3")
+insert  into coffee (code,name,type) values (A8,"CFcoffe","LOAI3")
+insert  into coffee (code,name,type) values (A9,"CFcoffe","LOAI2")
+insert  into coffee (code,name,type) values (A10,"METAcoffee","LOAI1")
+
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (1,"2022-01-03","30000","2","A1",1)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (2,"2022-01-03","30000","1","A2",2)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (3,"2022-01-03","30000","2","A2",1)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (4,"2022-01-03","30000","5","A5",10)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (5,"2022-01-03","30000","6","A6",9)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (6,"2022-01-03","30000","1","A6",3)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (7,"2022-01-03","30000","4","A4",4)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (8,"2022-01-03","30000","3","A8",8)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (9,"2022-01-03","30000","2","A3",9)
+insert into  customer_coffee(id,buy_date,price,quantity,code,customer_id) values (10,"2022-01-03","30000","2","A1",10)
+
+
+
+
