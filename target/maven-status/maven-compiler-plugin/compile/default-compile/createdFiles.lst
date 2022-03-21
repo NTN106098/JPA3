@@ -1,11 +1,17 @@
 com\axonactive\com\config\ResourceConfig.class
 com\axonactive\com\Entity\Coffee.class
 com\axonactive\com\Entity\enumerate\City.class
+com\axonactive\com\persistence\IEntity.class
 com\axonactive\com\Entity\enumerate\Gender.class
+com\axonactive\com\persistence\PersistenceService.class
 com\axonactive\com\Service\CustomerService.class
 com\axonactive\com\Controller\CustomerController.class
 com\axonactive\com\Service\Impl\CustomerServiceImpl.class
 com\axonactive\com\Entity\enumerate\Type.class
+com\axonactive\com\persistence\JPAPersistenceService.class
+com\axonactive\com\Service\CoffeeService.class
 com\axonactive\com\Entity\Customer.class
 com\axonactive\com\Controller\Request\CustomerRequest.class
 com\axonactive\com\Entity\CustomerCoffee.class
+com\axonactive\com\Controller\Request\CoffeeRequest.class
+com\axonactive\com\persistence\AbstractCRUDBean.class

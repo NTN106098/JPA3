@@ -2,6 +2,7 @@ package com.axonactive.com.Entity;
 
 
 import com.axonactive.com.Entity.enumerate.Gender;
+import com.axonactive.com.persistence.IEntity;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -12,20 +13,20 @@ import java.time.LocalDate;
 @Getter
 @Setter
 @Table(name = "customer")
-public class Customer {
+public class Customer implements IEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private  Integer id;
 
-    @Column(name = "first_name", nullable = false, columnDefinition = "varchar(20)")
+    @Column(name = "first_name", nullable = false)
     private String firstName;
 
-    @Column(name = "last_name", nullable = false, columnDefinition = "varchar(20)")
+    @Column(name = "last_name", nullable = false)
     private String lastName;
 
-    @Column(name = "date_of_birth", nullable = false)
+    @Column(name = "date_of_birth")
     private LocalDate dateOfBirth;
 
     @Column(nullable = false)
@@ -40,8 +41,5 @@ public class Customer {
 
     @Column(name = "city")
     private String city;
-
-
-
 
 }

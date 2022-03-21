@@ -5,6 +5,8 @@ import com.axonactive.com.Controller.Request.CustomerRequest;
 import com.axonactive.com.Entity.Customer;
 import com.axonactive.com.Service.CustomerService;
 
+import com.axonactive.com.Service.Impl.CustomerServiceImpl;
+
 
 import javax.inject.Inject;
 import javax.transaction.Transactional;
@@ -16,13 +18,15 @@ import javax.ws.rs.core.Response;
 @Produces(MediaType.APPLICATION_JSON)
 @Transactional
 public class CustomerController {
+
     @Inject
-    CustomerService customerService;
+//    CustomerService customerService ;
+    CustomerServiceImpl customerService;
 
     @GET
     @Path("/{id}")
     public Response getCustomerById(@PathParam("id") int id) {
-        return Response.ok(customerService.getCustomerById(id)).build();
+        return Response.ok(customerService.findById(id)).build();
     }
 
     @POST
@@ -39,7 +43,8 @@ public class CustomerController {
     @DELETE
     @Path("/{id}")
     public  Response deleteCustomerById(@PathParam("id") int id) {
-        customerService.deleteCustomerById(id);
+//        customerService.deleteCustomerById(id);
+        customerService.remove(id);
         return  Response.ok().build();
     }
 

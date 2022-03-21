@@ -3,6 +3,8 @@ package com.axonactive.com.Service.Impl;
 import com.axonactive.com.Controller.Request.CustomerRequest;
 import com.axonactive.com.Entity.Customer;
 import com.axonactive.com.Service.CustomerService;
+import com.axonactive.com.persistence.AbstractCRUDBean;
+import com.axonactive.com.persistence.PersistenceService;
 
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
@@ -14,25 +16,33 @@ import java.util.Objects;
 
 @RequestScoped
 @Transactional
-public class CustomerServiceImpl implements CustomerService {
-    @PersistenceContext(unitName = "coffedb")
-    private EntityManager em;
+public class CustomerServiceImpl extends AbstractCRUDBean<Customer> {
     @Inject
-    CustomerService customerService;
-
+    PersistenceService<Customer> persistenceService;
 
     @Override
-    public Customer getCustomerById(int id) {
-        return em.find(Customer.class,id);
+    protected PersistenceService<Customer> getPersistenceService() {
+        return persistenceService;
     }
 
-    @Override
+
+//    @PersistenceContext(unitName = "coffedb")
+//    private EntityManager em;
+
+
+    //    @Override
+//    public Customer getCustomerById(int id) {
+//        return em.find(Customer.class,id);
+//    }
+//
+//    @Override
     public List<Customer> getAllCustomer() {
-        return em.createQuery("SELECT c FROM Customer c", Customer.class).getResultList();
+        return persistenceService.createQuery("SELECT c FROM Customer c").getResultList();
     }
 
-    @Override
-    public Customer addCustomer( CustomerRequest customerRequest) {
+    //
+//    @Override
+    public Customer addCustomer(CustomerRequest customerRequest) {
         Customer customer = new Customer();
         customer.setFirstName(customerRequest.getFirstName());
         customer.setLastName(customerRequest.getLastName());
@@ -41,13 +51,16 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setPhone(customerRequest.getPhone());
         customer.setCity(customerRequest.getCity());
         customer.setEmail(customerRequest.getEmail());
-         em.persist(customer);
-         return customer;
+        save(customer);
+//         em.persist(customer);
+        return customer;
     }
 
-    @Override
+    //
+//    @Override
     public Customer updateCustomerById(int id, CustomerRequest customerRequest) {
-        Customer customer = getCustomerById(id);
+//        Customer customer = getCustomerById(id);
+        Customer customer = findById(id);
         customer.setFirstName(customerRequest.getFirstName());
         customer.setLastName(customerRequest.getLastName());
         customer.setDateOfBirth(customerRequest.getDateOfBirth());
@@ -56,16 +69,19 @@ public class CustomerServiceImpl implements CustomerService {
         customer.setCity(customerRequest.getCity());
         customer.setEmail(customerRequest.getEmail());
 
-        em.merge(customer);
+//        em.merge(customer);
+        update(customer);
         return customer;
-    }
+//    }
+//
+//    @Override
+//    public void deleteCustomerById(int id) {
+//        Customer customer = em.find(Customer.class, id);
+//        if (!Objects.isNull(customer)) {
+//            em.remove(customer);
+//        }
+//    }
 
-    @Override
-    public void deleteCustomerById(int id) {
-        Customer customer = em.find(Customer.class, id);
-        if (!Objects.isNull(customer)) {
-            em.remove(customer);
-        }
-    }
 
+    }
 }

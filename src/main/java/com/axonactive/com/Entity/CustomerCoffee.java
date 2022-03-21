@@ -1,7 +1,10 @@
 package com.axonactive.com.Entity;
 
 
+import com.axonactive.com.persistence.IEntity;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -10,20 +13,30 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "customer_coffee")
-public class CustomerCoffee {
+@NamedQueries({
+        @NamedQuery(name =CustomerCoffee.GET_ALL,query = "FROM CustomerCoffee" ),
+        @NamedQuery(name =CustomerCoffee.GET_BY_ID, query = "SELECT c FROM CustomerCoffee c WHERE c.id = :id")
+})
+public class CustomerCoffee implements IEntity {
+    private final static String QUALIFIED = "com.axonactive.com.Entity";
+    public final static String GET_ALL = QUALIFIED + "getCustomerCoffee";
+    public final static String GET_BY_ID = QUALIFIED + "getCustomerCoffeeById";
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column()
     private  Integer id;
 
     @Column(name = "buy_date")
     private LocalDate buyDate;
 
-    @Column(name = "quantity")
+    @Column()
     private Integer quantity;
 
-    @Column(name = "price")
+    @Column()
     private Integer price;
 
     @ManyToOne
@@ -31,7 +44,7 @@ public class CustomerCoffee {
     private Customer customers;
 
     @ManyToOne
-    @JoinColumn(name = "code",nullable = false)
+    @JoinColumn(name = "coffee_id",nullable = false)
     private Coffee coffee;
 
 }
