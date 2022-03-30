@@ -2,8 +2,9 @@ package com.axonactive.com.Entity;
 
 
 import com.axonactive.com.Entity.enumerate.Gender;
-import com.axonactive.com.persistence.IEntity;
+import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import javax.persistence.*;
@@ -12,8 +13,18 @@ import java.time.LocalDate;
 @Entity
 @Getter
 @Setter
+@AllArgsConstructor
+@NoArgsConstructor
 @Table(name = "customer")
-public class Customer implements IEntity {
+@NamedQueries({
+        @NamedQuery(name = Customer.GET_ALL_CUSTOMER, query = "FROM Customer"),
+        @NamedQuery(name = Customer.GET_BY_ID, query = "SELECT c FROM Customer c WHERE c.id= :id")
+})
+
+public class Customer  {
+        private static final String QUALIFIED = "com.axonactive.com.Entity;";
+        public static final String GET_BY_ID = QUALIFIED + "getCustomerById" ;
+        public static final String GET_ALL_CUSTOMER = QUALIFIED + "getCustomer";
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

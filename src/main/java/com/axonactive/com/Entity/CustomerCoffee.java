@@ -1,7 +1,6 @@
 package com.axonactive.com.Entity;
 
 
-import com.axonactive.com.persistence.IEntity;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,7 +19,7 @@ import java.time.LocalDate;
         @NamedQuery(name =CustomerCoffee.GET_ALL,query = "FROM CustomerCoffee" ),
         @NamedQuery(name =CustomerCoffee.GET_BY_ID, query = "SELECT c FROM CustomerCoffee c WHERE c.id = :id")
 })
-public class CustomerCoffee implements IEntity {
+public class CustomerCoffee  {
     private final static String QUALIFIED = "com.axonactive.com.Entity";
     public final static String GET_ALL = QUALIFIED + "getCustomerCoffee";
     public final static String GET_BY_ID = QUALIFIED + "getCustomerCoffeeById";
@@ -38,6 +37,9 @@ public class CustomerCoffee implements IEntity {
 
     @Column()
     private Integer price;
+
+    @Column()
+    private  String code;
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)

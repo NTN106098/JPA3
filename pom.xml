@@ -25,6 +25,7 @@
         <hibernateCore.version>5.5.9.Final</hibernateCore.version>
     </properties>
 
+
     <build>
         <finalName>jpa</finalName>
     <plugins>
@@ -41,7 +42,10 @@
     </plugins>
     </build>
 
+
     <dependencies>
+
+
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>

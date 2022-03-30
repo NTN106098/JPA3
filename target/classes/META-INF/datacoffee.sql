@@ -29,7 +29,7 @@ insert into  customer_coffee(id,buy_date,price,quantity,code,coffee_id,customer_
 insert into  customer_coffee(id,buy_date,price,quantity,code,coffee_id,customer_id) values (7,"2022-01-03","30000","4","A7",4,4)
 insert into  customer_coffee(id,buy_date,price,quantity,code,coffee_id,customer_id) values (8,"2022-01-03","30000","3","A8",8,8)
 insert into  customer_coffee(id,buy_date,price,quantity,code,coffee_id,customer_id) values (9,"2022-01-03","30000","2","A9",3,9)
-insert into  customer_coffee(id,buy_date,price,quantitycode,code,coffee_id,customer_id) values (10,"2022-01-03","30000","2","A10",1,10)
+insert into  customer_coffee(id,buy_date,price,quantity,code,coffee_id,customer_id) values (10,"2022-01-03","30000","2","A10",1,10)
 
 
 
