@@ -13,6 +13,10 @@ public interface CustomerCoffeeService {
 //   CustomerCoffee addCustomerCoffeeByCustomerId(int customerId,CustomerCoffeeRequest customerCoffeeRequest);
    CustomerCoffee uppdateCustomerCoffee(int id, CustomerCoffeeRequest customerCoffeeRequest);
    CustomerCoffee deleteCustomerCoffeeById(int customerCoffeeId);
-//    CustomerCoffee updateCustomerCoffeeByCustomerId(int id, CustomerCoffeeRequest customerCoffeeRequest );
+
+    List<CustomerCoffee> getCustomerCoffeeByCustomerId(int customerId);
+
+//   CustomerCoffee addCustomerCoffeeByCustomerId(int id,CustomerCoffeeRequest customerCoffeeRequest);
+////    CustomerCoffee updateCustomerCoffeeByCustomerId(int id, CustomerCoffeeRequest customerCoffeeRequest );
 }
 

@@ -15,4 +15,5 @@ public interface CustomerService {
      Customer updateCustomerById(int id, CustomerRequest customerRequest);
 
      void  deleteCustomerById(int id);
+     List<Customer> getCustomerByMonth(int month);
 }

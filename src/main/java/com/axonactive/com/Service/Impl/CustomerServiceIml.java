@@ -16,13 +16,13 @@ public class CustomerServiceIml implements CustomerService {
     public Customer getCustomerById(int id) {
 
 //        return entityManager.find(Customer.class, id) ;
-        return  entityManager.createQuery(Customer.GET_BY_ID,Customer.class).setParameter("id",id).getSingleResult();
+        return  entityManager.createNamedQuery(Customer.GET_BY_ID,Customer.class).setParameter("id",id).getSingleResult();
     }
 
     @Override
     public List<Customer> getAllCustomer() {
 //        return entityManager.createQuery("SELECT c FROM Customer c",Customer.class).getResultList();
-        return entityManager.createQuery(Customer.GET_ALL_CUSTOMER,Customer.class).getResultList();
+        return entityManager.createNamedQuery(Customer.GET_ALL_CUSTOMER, Customer.class).getResultList();
     }
 
 
@@ -61,5 +61,10 @@ public class CustomerServiceIml implements CustomerService {
         if(!Objects.isNull(customer)){
             entityManager.remove(customer);
         }
+    }
+
+    @Override
+    public List<Customer> getCustomerByMonth(int month) {
+        return null;
     }
 }

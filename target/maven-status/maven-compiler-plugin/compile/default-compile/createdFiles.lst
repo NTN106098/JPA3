@@ -12,8 +12,10 @@ com\axonactive\com\Entity\enumerate\Type.class
 com\axonactive\com\Service\CoffeeService.class
 com\axonactive\com\Entity\Customer.class
 com\axonactive\com\Controller\Request\CustomerRequest.class
+com\axonactive\com\Service\mapper\CustomerMapper.class
 com\axonactive\com\Entity\CustomerCoffee.class
 com\axonactive\com\Service\Impl\CustomerCoffeeServiceImpl.class
+com\axonactive\com\Service\mapper\CustomerMapperImpl.class
 com\axonactive\com\Controller\CustomerCoffeeController.class
 com\axonactive\com\Controller\Request\CustomerCoffeeRequest.class
 com\axonactive\com\Controller\Request\CoffeeRequest.class

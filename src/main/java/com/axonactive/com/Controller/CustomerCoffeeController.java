@@ -28,6 +28,12 @@ public class CustomerCoffeeController {
         return  Response.ok(customerCoffeeService.getCustomerCoffeeById(id)).build();
     }
 
+    @GET
+    @Path("/customer/{id}")
+    public Response getCustomerCoffeeByCustomerId(@PathParam("id") int id) {
+        return Response.ok(customerCoffeeService.getCustomerCoffeeByCustomerId(id)).build();
+    }
+
     @POST
     public  Response addCustomerCoffee(CustomerCoffeeRequest customerCoffeeRequest) {
         return  Response.ok(customerCoffeeService.addCustomerCoffee(customerCoffeeRequest)).build();
@@ -44,6 +50,12 @@ public class CustomerCoffeeController {
     @Path("/{id}")
     public  Response deleteCustomerCoffeeById(@PathParam("id") int id) {
         return  Response.ok(customerCoffeeService.deleteCustomerCoffeeById(id)).build();
+    }
+
+    @POST
+    @Path("/customer/{id}")
+    public Response addCustomerCoffeeByCustomerId(@PathParam("id") int id,CustomerCoffeeRequest customerCoffeeRequest){
+        return Response.ok(customerCoffeeService.addCustomerCoffeeByCustomerId(id, customerCoffeeRequest)).build();
     }
 
 }

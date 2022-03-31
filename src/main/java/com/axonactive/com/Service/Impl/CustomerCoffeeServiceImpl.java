@@ -26,6 +26,9 @@ public class CustomerCoffeeServiceImpl implements CustomerCoffeeService {
     @PersistenceContext(unitName = "coffeedb")
     private EntityManager em;
 
+    @Inject
+    CustomerService customerService;
+
 
     @Override
     public List<CustomerCoffee> getAllCustomerCoffeeByCustomer() {
@@ -49,7 +52,7 @@ public class CustomerCoffeeServiceImpl implements CustomerCoffeeService {
         customerCoffee.setBuyDate(customerCoffeeRequest.getBuyDate());
         customerCoffee.setPrice(customerCoffeeRequest.getPrice());
         customerCoffee.setQuantity(customerCoffeeRequest.getQuantity());
-        customerCoffee.setCustomers(customer);
+        customerCoffee.setCustomer(customer);
         customerCoffee.setCoffee(coffee);
 
         em.persist(customerCoffee);
@@ -63,8 +66,8 @@ public class CustomerCoffeeServiceImpl implements CustomerCoffeeService {
 //        customerCoffee.setPrice(customerCoffee.getPrice());
 //        customerCoffee.setQuantity(customerCoffee.getQuantity());
 //
-//        Customer customer = customerService.getCustomerById(customerId);
-//        customerCoffee.setCustomers(customer);
+////        Customer customer = customerService.getCustomerById(customerId);
+////        customerCoffee.setCustomers(customer);
 //        em.persist(customerCoffee);
 //        return customerCoffee;
 //    }
@@ -88,6 +91,21 @@ public class CustomerCoffeeServiceImpl implements CustomerCoffeeService {
         }
        return customerCoffee;
     }
+
+    @Override
+    public List<CustomerCoffee> getCustomerCoffeeByCustomerId(int customerId) {
+       Query query = em.createQuery("SELECT c FROM CustomerCoffee c WHERE c.customer.id = :customerId");
+       query.setParameter("customerId",customerId);
+
+       return query.getResultList();
+
+    }
+
+//    @Override
+//    public CustomerCoffee addCustomerCoffeeByCustomerId(int id,CustomerCoffeeRequest customerCoffeeRequest) {
+//     Query query = em.createQuery("SELECT c FROM CustomerCoffee c WHERE c.customer.id = :customerId")  ;
+//     return null;
+//    }
 
 
 }

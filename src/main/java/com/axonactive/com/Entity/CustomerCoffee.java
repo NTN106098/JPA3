@@ -43,7 +43,7 @@ public class CustomerCoffee  {
 
     @ManyToOne
     @JoinColumn(name = "customer_id", nullable = false)
-    private Customer customers;
+    private Customer customer;
 
     @ManyToOne
     @JoinColumn(name = "coffee_id",nullable = false)

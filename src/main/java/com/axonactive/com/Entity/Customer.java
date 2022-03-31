@@ -22,7 +22,7 @@ import java.time.LocalDate;
 })
 
 public class Customer  {
-        private static final String QUALIFIED = "com.axonactive.com.Entity;";
+        private static final String QUALIFIED = "com.axonactive.com.Entity";
         public static final String GET_BY_ID = QUALIFIED + "getCustomerById" ;
         public static final String GET_ALL_CUSTOMER = QUALIFIED + "getCustomer";
 
